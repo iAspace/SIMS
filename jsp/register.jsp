@@ -29,20 +29,17 @@
     try{
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/stu_info","root","mysql");
         Statement sta = con.createStatement();
-        ResultSet rs = sta.executeQuery("select * from user_info where username = '" + username +"'");
+        ResultSet rs = sta.executeQuery("select * from user_info where user_name = '" + username +"'");
         if(rs.next()){
-            if (username != null && password != null) {
-                out.print("<script>alert('您输入的用户名已经存在，请重新输入新的用户名！');</script>");
-            }
             session.setAttribute("register_false","您的用户名已经存在");
+            out.print("<script>alert('您输入的用户名已经存在，请重新输入新的用户名!');self.location='../html/register.html';</script>");
         }
         else {
             String condition = "insert into user_info values('" + RealName +"','" + username + "','" + password + "')";
             sta.executeUpdate(condition);
             session.setAttribute("register_success", "您注册成功了！");
-            out.print("<script>alert('您注册成功了!');self.location='../html/index.html';</script>");
+            out.print("<script>alert('您注册成功了!');self.location='../index.jsp';</script>");
             con.close();
-//            response.sendRedirect("../html/index.html");
         }
     }catch(SQLException e1) {
         e1.printStackTrace();

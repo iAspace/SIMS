@@ -1,4 +1,4 @@
-## <center>Student Information Management System</center
+## <center>Student Information Management System</center>
 
 ### Synopsis
 

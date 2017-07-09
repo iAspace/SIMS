@@ -1,5 +1,6 @@
 <center>Student Information Management System</center>
 =======================================
+
 ### Synopsis
 
 This program is based on Java Web dynamic web pages, used to manage student information
